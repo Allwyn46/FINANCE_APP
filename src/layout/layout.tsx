@@ -6,9 +6,9 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main>
+      <main className="w-full">
         <div className="flex justify-between items-center bg-black mt-0 w-full p-2">
-          <div>
+          <div className="max-w-[300px]">
             <SidebarTrigger />
           </div>
           <div className="max-w-6xl">
