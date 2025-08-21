@@ -1,16 +1,25 @@
 import { AppSidebar } from "@/components/AppSidebar";
+import Header from "@/components/Header";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <SidebarProvider>
       <AppSidebar />
       <main>
-        <SidebarTrigger />
+        <div className="flex justify-between items-center bg-black mt-0 w-full p-2">
+          <div>
+            <SidebarTrigger />
+          </div>
+          <div className="max-w-6xl">
+            <Header />
+          </div>
+          <div></div>
+        </div>
         {children}
       </main>
     </SidebarProvider>
   );
 };
 
-export default layout;
+export default AdminLayout;
