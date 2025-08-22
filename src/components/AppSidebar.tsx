@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Home, Inbox } from "lucide-react";
 
 import {
   Sidebar,
@@ -9,6 +9,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
 // Menu items.
@@ -19,24 +22,27 @@ const items = [
     icon: Home,
   },
   {
-    title: "Inbox",
+    title: "Billing",
     url: "#",
     icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
+    submenus: [
+      {
+        title: "Create Invoice",
+        url: "#",
+      },
+      {
+        title: "Generate Estimate",
+        url: "#",
+      },
+      {
+        title: "Create Receipts",
+        url: "#",
+      },
+      {
+        title: "Markup Calculator",
+        url: "#",
+      },
+    ],
   },
 ];
 
@@ -56,6 +62,17 @@ export function AppSidebar() {
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
+                  <SidebarMenuSub>
+                    {item.submenus?.map((menuitem) => (
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          <a href={menuitem.url}>
+                            <span>{menuitem.title}</span>
+                          </a>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    ))}
+                  </SidebarMenuSub>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>

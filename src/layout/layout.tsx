@@ -1,8 +1,9 @@
 import { AppSidebar } from "@/components/AppSidebar";
 import Header from "@/components/Header";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Outlet } from "react-router";
 
-const AdminLayout = ({ children }: { children: React.ReactNode }) => {
+const AdminLayout = () => {
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -16,7 +17,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
           <div></div>
         </div>
-        {children}
+        <Outlet />
       </main>
     </SidebarProvider>
   );
