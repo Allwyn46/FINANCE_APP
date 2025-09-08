@@ -12,6 +12,9 @@ import AuthLayout from "./layout/AuthLayout.tsx";
 import AdminLayout from "./layout/layout.tsx";
 import InvoicePage from "./admin/billing/InvoicePage.tsx";
 import EstimatePage from "./admin/billing/EstimatePage.tsx";
+import Setup2fa from "./auth/Setup2fa.tsx";
+import Verify2fa from "./auth/Verify2fa.tsx";
+import ProtectedLayout from "./layout/ProtectedLayout.tsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +32,19 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+    ],
+  },
+  {
+    element: <ProtectedLayout />,
+    children: [
+      {
+        path: "setup-2fa",
+        element: <Setup2fa />,
+      },
+      {
+        path: "verify-2fa",
+        element: <Verify2fa />,
       },
     ],
   },
